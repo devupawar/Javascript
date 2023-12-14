@@ -1,0 +1,52 @@
+const mprom1 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+       resolve("promise 1 resolve")
+    },7000);
+ })
+ 
+ const mprom2 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+       resolve("promise 2 resolve")
+    },5000)
+ })
+ 
+ const mprom3=new Promise((resolve,reject)=>{
+    setTimeout(()=>{resolve("promise 3 resolve")
+    reject(new Error("promise not call"))
+ },4000)
+  
+})
+
+const mprom4=new Promise((resolve,reject)=>{
+ setTimeout(()=>{
+    resolve("promisse 4 resolve")
+ },1000)
+})
+
+// Promise.all([mprom1,mprom2,mprom3,mprom4])
+// .then((result)=>{
+//    console.log(result)
+// }).catch((err)=>{
+//   console.log(err)
+//  })
+
+async function dowork(){
+ let res1;
+ try{
+    res1=await mprom1
+    console.log(res1)  
+ }catch(error){
+    console.log(err)
+ }
+
+ 
+ let res2;
+ try{
+    res2=await mprom2
+    console.log(res2)
+ }catch(error){
+    console.log(err)
+ }
+ 
+}
+dowork() 
